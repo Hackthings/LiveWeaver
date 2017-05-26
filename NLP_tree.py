@@ -61,4 +61,5 @@ for sentence in output['sentences']:
 
 for i in output['corefs']:
     for x in output['corefs'][i]:
-        print(x) #travesring through corefs, have to assign them
+        if x['number'] == 'SINGULAR':
+            trees[x['sentNum']].leaf_treeposition(x['startIndex'])# this gets the position index form the tree
