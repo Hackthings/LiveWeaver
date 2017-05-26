@@ -1,0 +1,83 @@
+
+text = (
+  'Pusheen and Smitha walked along the beach. '
+  'Pusheen wanted to surf, but fell off the surfboard.')
+
+{
+'sentences': [
+	{'index': 0, 
+	'parse': '(ROOT\n  (S\n    (NP (NNP Pusheen)\n      (CC and)\n      (NNP Smitha))\n    (VP (VBD walked)\n      (PP (IN along)\n        (NP (DT the) (NN beach))))\n    (. .)))', 'basicDependencies': [{'dep': 'ROOT', 'governor': 0, 'governorGloss': 'ROOT', 'dependent': 4, 'dependentGloss': 'walked'}, {'dep': 'nsubj', 'governor': 4, 'governorGloss': 'walked', 'dependent': 1, 'dependentGloss': 'Pusheen'}, {'dep': 'cc', 'governor': 1, 'governorGloss': 'Pusheen', 'dependent': 2, 'dependentGloss': 'and'}, {'dep': 'conj', 'governor': 1, 'governorGloss': 'Pusheen', 'dependent': 3, 'dependentGloss': 'Smitha'}, {'dep': 'case', 'governor': 7, 'governorGloss': 'beach', 'dependent': 5, 'dependentGloss': 'along'}, {'dep': 'det', 'governor': 7, 'governorGloss': 'beach', 'dependent': 6, 'dependentGloss': 'the'}, {'dep': 'nmod', 'governor': 4, 'governorGloss': 'walked', 'dependent': 7, 'dependentGloss': 'beach'}, {'dep': 'punct', 'governor': 4, 'governorGloss': 'walked', 'dependent': 8, 'dependentGloss': '.'}], 
+
+	'enhancedDependencies': [{'dep': 'ROOT', 'governor': 0, 'governorGloss': 'ROOT', 'dependent': 4, 'dependentGloss': 'walked'}, {'dep': 'nsubj', 'governor': 4, 'governorGloss': 'walked', 'dependent': 1, 'dependentGloss': 'Pusheen'}, {'dep': 'cc', 'governor': 1, 'governorGloss': 'Pusheen', 'dependent': 2, 'dependentGloss': 'and'}, {'dep': 'conj:and', 'governor': 1, 'governorGloss': 'Pusheen', 'dependent': 3, 'dependentGloss': 'Smitha'}, {'dep': 'nsubj', 'governor': 4, 'governorGloss': 'walked', 'dependent': 3, 'dependentGloss': 'Smitha'}, {'dep': 'case', 'governor': 7, 'governorGloss': 'beach', 'dependent': 5, 'dependentGloss': 'along'}, {'dep': 'det', 'governor': 7, 'governorGloss': 'beach', 'dependent': 6, 'dependentGloss': 'the'}, {'dep': 'nmod:along', 'governor': 4, 'governorGloss': 'walked', 'dependent': 7, 'dependentGloss': 'beach'}, {'dep': 'punct', 'governor': 4, 'governorGloss': 'walked', 'dependent': 8, 'dependentGloss': '.'}], '
+
+	'enhancedPlusPlusDependencies': [{'dep': 'ROOT', 'governor': 0, 'governorGloss': 'ROOT', 'dependent': 4, 'dependentGloss': 'walked'}, {'dep': 'nsubj', 'governor': 4, 'governorGloss': 'walked', 'dependent': 1, 'dependentGloss': 'Pusheen'}, {'dep': 'cc', 'governor': 1, 'governorGloss': 'Pusheen', 'dependent': 2, 'dependentGloss': 'and'}, {'dep': 'conj:and', 'governor': 1, 'governorGloss': 'Pusheen', 'dependent': 3, 'dependentGloss': 'Smitha'}, {'dep': 'nsubj', 'governor': 4, 'governorGloss': 'walked', 'dependent': 3, 'dependentGloss': 'Smitha'}, {'dep': 'case', 'governor': 7, 'governorGloss': 'beach', 'dependent': 5, 'dependentGloss': 'along'}, {'dep': 'det', 'governor': 7, 'governorGloss': 'beach', 'dependent': 6, 'dependentGloss': 'the'}, {'dep': 'nmod:along', 'governor': 4, 'governorGloss': 'walked', 'dependent': 7, 'dependentGloss': 'beach'}, {'dep': 'punct', 'governor': 4, 'governorGloss': 'walked', 'dependent': 8, 'dependentGloss': '.'}], 
+
+	'tokens': [{'index': 1, 'word': 'Pusheen', 'originalText': 'Pusheen', 'lemma': 'Pusheen', 'characterOffsetBegin': 0, 'characterOffsetEnd': 7, 'pos': 'NNP', 'ner': 'PERSON', 'speaker': 'PER0', 'before': '', 'after': ' '}, {'index': 2, 'word': 'and', 'originalText': 'and', 'lemma': 'and', 'characterOffsetBegin': 8, 'characterOffsetEnd': 11, 'pos': 'CC', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 3, 'word': 'Smitha', 'originalText': 'Smitha', 'lemma': 'Smitha', 'characterOffsetBegin': 12, 'characterOffsetEnd': 18, 'pos': 'NNP', 'ner': 'PERSON', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 4, 'word': 'walked', 'originalText': 'walked', 'lemma': 'walk', 'characterOffsetBegin': 19, 'characterOffsetEnd': 25, 'pos': 'VBD', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 5, 'word': 'along', 'originalText': 'along', 'lemma': 'along', 'characterOffsetBegin': 26, 'characterOffsetEnd': 31, 'pos': 'IN', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 6, 'word': 'the', 'originalText': 'the', 'lemma': 'the', 'characterOffsetBegin': 32, 'characterOffsetEnd': 35, 'pos': 'DT', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 7, 'word': 'beach', 'originalText': 'beach', 'lemma': 'beach', 'characterOffsetBegin': 36, 'characterOffsetEnd': 41, 'pos': 'NN', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ''}, {'index': 8, 'word': '.', 'originalText': '.', 'lemma': '.', 'characterOffsetBegin': 41, 'characterOffsetEnd': 42, 'pos': '.', 'ner': 'O', 'speaker': 'PER0', 'before': '', 'after': ' '}]}, 
+
+	{'index': 1, 
+
+	'parse': '(ROOT\n  (S\n    (NP (NNP Pusheen))\n    (VP\n      (VP (VBD wanted)\n        (PP (TO to)\n          (NP (NN surf))))\n      (, ,)\n      (CC but)\n      (VP (VBD fell)\n        (PRT (RP off))\n        (NP (DT the) (NN surfboard))))\n    (. .)))', 
+
+	'basicDependencies': [{'dep': 'ROOT', 'governor': 0, 'governorGloss': 'ROOT', 'dependent': 2, 'dependentGloss': 'wanted'}, {'dep': 'nsubj', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 1, 'dependentGloss': 'Pusheen'}, {'dep': 'case', 'governor': 4, 'governorGloss': 'surf', 'dependent': 3, 'dependentGloss': 'to'}, {'dep': 'nmod', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 4, 'dependentGloss': 'surf'}, {'dep': 'punct', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 5, 'dependentGloss': ','}, {'dep': 'cc', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 6, 'dependentGloss': 'but'}, {'dep': 'conj', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 7, 'dependentGloss': 'fell'}, {'dep': 'compound:prt', 'governor': 7, 'governorGloss': 'fell', 'dependent': 8, 'dependentGloss': 'off'}, {'dep': 'det', 'governor': 10, 'governorGloss': 'surfboard', 'dependent': 9, 'dependentGloss': 'the'}, {'dep': 'dobj', 'governor': 7, 'governorGloss': 'fell', 'dependent': 10, 'dependentGloss': 'surfboard'}, {'dep': 'punct', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 11, 'dependentGloss': '.'}], 
+
+	'enhancedDependencies': [{'dep': 'ROOT', 'governor': 0, 'governorGloss': 'ROOT', 'dependent': 2, 'dependentGloss': 'wanted'}, {'dep': 'nsubj', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 1, 'dependentGloss': 'Pusheen'}, {'dep': 'nsubj', 'governor': 7, 'governorGloss': 'fell', 'dependent': 1, 'dependentGloss': 'Pusheen'}, {'dep': 'case', 'governor': 4, 'governorGloss': 'surf', 'dependent': 3, 'dependentGloss': 'to'}, {'dep': 'nmod:to', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 4, 'dependentGloss': 'surf'}, {'dep': 'punct', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 5, 'dependentGloss': ','}, {'dep': 'cc', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 6, 'dependentGloss': 'but'}, {'dep': 'conj:but', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 7, 'dependentGloss': 'fell'}, {'dep': 'compound:prt', 'governor': 7, 'governorGloss': 'fell', 'dependent': 8, 'dependentGloss': 'off'}, {'dep': 'det', 'governor': 10, 'governorGloss': 'surfboard', 'dependent': 9, 'dependentGloss': 'the'}, {'dep': 'dobj', 'governor': 7, 'governorGloss': 'fell', 'dependent': 10, 'dependentGloss': 'surfboard'}, {'dep': 'punct', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 11, 'dependentGloss': '.'}], 
+
+
+	'enhancedPlusPlusDependencies': [{'dep': 'ROOT', 'governor': 0, 'governorGloss': 'ROOT', 'dependent': 2, 'dependentGloss': 'wanted'}, {'dep': 'nsubj', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 1, 'dependentGloss': 'Pusheen'}, {'dep': 'nsubj', 'governor': 7, 'governorGloss': 'fell', 'dependent': 1, 'dependentGloss': 'Pusheen'}, {'dep': 'case', 'governor': 4, 'governorGloss': 'surf', 'dependent': 3, 'dependentGloss': 'to'}, {'dep': 'nmod:to', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 4, 'dependentGloss': 'surf'}, {'dep': 'punct', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 5, 'dependentGloss': ','}, {'dep': 'cc', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 6, 'dependentGloss': 'but'}, {'dep': 'conj:but', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 7, 'dependentGloss': 'fell'}, {'dep': 'compound:prt', 'governor': 7, 'governorGloss': 'fell', 'dependent': 8, 'dependentGloss': 'off'}, {'dep': 'det', 'governor': 10, 'governorGloss': 'surfboard', 'dependent': 9, 'dependentGloss': 'the'}, {'dep': 'dobj', 'governor': 7, 'governorGloss': 'fell', 'dependent': 10, 'dependentGloss': 'surfboard'}, {'dep': 'punct', 'governor': 2, 'governorGloss': 'wanted', 'dependent': 11, 'dependentGloss': '.'}], 
+
+	'tokens': [{'index': 1, 'word': 'Pusheen', 'originalText': 'Pusheen', 'lemma': 'Pusheen', 'characterOffsetBegin': 43, 'characterOffsetEnd': 50, 'pos': 'NNP', 'ner': 'PERSON', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 2, 'word': 'wanted', 'originalText': 'wanted', 'lemma': 'want', 'characterOffsetBegin': 51, 'characterOffsetEnd': 57, 'pos': 'VBD', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 3, 'word': 'to', 'originalText': 'to', 'lemma': 'to', 'characterOffsetBegin': 58, 'characterOffsetEnd': 60, 'pos': 'TO', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 4, 'word': 'surf', 'originalText': 'surf', 'lemma': 'surf', 'characterOffsetBegin': 61, 'characterOffsetEnd': 65, 'pos': 'NN', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ''}, {'index': 5, 'word': ',', 'originalText': ',', 'lemma': ',', 'characterOffsetBegin': 65, 'characterOffsetEnd': 66, 'pos': ',', 'ner': 'O', 'speaker': 'PER0', 'before': '', 'after': ' '}, {'index': 6, 'word': 'but', 'originalText': 'but', 'lemma': 'but', 'characterOffsetBegin': 67, 'characterOffsetEnd': 70, 'pos': 'CC', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 7, 'word': 'fell', 'originalText': 'fell', 'lemma': 'fall', 'characterOffsetBegin': 71, 'characterOffsetEnd': 75, 'pos': 'VBD', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 8, 'word': 'off', 'originalText': 'off', 'lemma': 'off', 'characterOffsetBegin': 76, 'characterOffsetEnd': 79, 'pos': 'RP', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 9, 'word': 'the', 'originalText': 'the', 'lemma': 'the', 'characterOffsetBegin': 80, 'characterOffsetEnd': 83, 'pos': 'DT', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ' '}, {'index': 10, 'word': 'surfboard', 'originalText': 'surfboard', 'lemma': 'surfboard', 'characterOffsetBegin': 84, 'characterOffsetEnd': 93, 'pos': 'NN', 'ner': 'O', 'speaker': 'PER0', 'before': ' ', 'after': ''}, {'index': 11, 'word': '.', 'originalText': '.', 'lemma': '.', 'characterOffsetBegin': 93, 'characterOffsetEnd': 94, 'pos': '.', 'ner': 'O', 'speaker': 'PER0', 'before': '', 'after': ''}]}],
+
+'corefs': {'3': [{'id': 1, 'text': 'Pusheen and Smitha', 'type': 'LIST', 'number': 'PLURAL', 'gender': 'UNKNOWN', 'animacy': 'ANIMATE', 'startIndex': 1, 'endIndex': 4, 'headIndex': 1, 
+				'sentNum': 1, 'position': [1, 2], 'isRepresentativeMention': False}, 
+				
+				{'id': 3, 'text': 'Pusheen', 'type': 'PROPER', 'number': 'SINGULAR', 'gender': 'UNKNOWN', 'animacy': 'ANIMATE', 'startIndex': 1, 'endIndex': 2, 'headIndex': 1, 'sentNum': 2, 'position': [2, 1], 'isRepresentativeMention': True}]
+			}
+
+}
+
+
+
+
+text = (
+  'Pusheen and Smitha walked along the beach. '
+  'Pusheen wanted to surf, but fell off the surfboard.')
+
+PS E:\PS 1\Python testing> python corenlp_test.py
+{'3': [{'id': 1, 'text': 'Pusheen and Smitha', 'type': 'LIST', 'number': 'PLURAL', 'gender': 'UNKNOWN', 'animacy': 'ANIMATE', 'startIndex': 1, 'endIndex': 4, 'headIndex': 1, 'sentNum': 1,
+ 'position': [1, 2], 'isRepresentativeMention': False}, {'id': 3, 'text': 'Pusheen', 'type': 'PROPER', 'number': 'SINGULAR', 'gender': 'UNKNOWN', 'animacy': 'ANIMATE', 'startIndex': 1, 'e
+ndIndex': 2, 'headIndex': 1, 'sentNum': 2, 'position': [2, 1], 'isRepresentativeMention': True}]}
+
+
+
+text = (
+  'Pusheen, Rahul, and Smitha walked along the beach. '
+  'Pusheen and Rahul wanted to surf, but fell off the surfboard.')
+
+PS E:\PS 1\Python testing> python corenlp_test.py
+{'4': [{'id': 0, 'text': 'Rahul', 'type': 'PROPER', 'number': 'SINGULAR', 'gender': 'MALE', 'animacy': 'ANIMATE', 'startIndex': 3, 'endIndex': 4, 'headIndex': 3, 'sentNum': 1, 'position':
+ [1, 1], 'isRepresentativeMention': True}, {'id': 4, 'text': 'Rahul', 'type': 'PROPER', 'number': 'SINGULAR', 'gender': 'MALE', 'animacy': 'ANIMATE', 'startIndex': 3, 'endIndex': 4, 'head
+Index': 3, 'sentNum': 2, 'position': [2, 1], 'isRepresentativeMention': False}], 
+'7': [{'id': 2, 'text': 'Pusheen , Rahul , and Smitha', 'type': 'LIST', 'number': 'PLURAL', 'gender': 'UNK
+NOWN', 'animacy': 'ANIMATE', 'startIndex': 1, 'endIndex': 7, 'headIndex': 1, 'sentNum': 1, 'position': [1, 3], 'isRepresentativeMention': True}, {'id': 7, 'text': 'Pusheen and Rahul', 'ty
+pe': 'LIST', 'number': 'PLURAL', 'gender': 'UNKNOWN', 'animacy': 'ANIMATE', 'startIndex': 1, 'endIndex': 4, 'headIndex': 1, 'sentNum': 2, 'position': [2, 4], 'isRepresentativeMention': Fa
+lse}]}
+
+
+
+text = (
+  'Pusheen and Smitha walked along the beach. '
+  'Pusheen and Rahul wanted to surf, but fell off the surfboard.')
+
+PS E:\PS 1\Python testing> python corenlp_test.py
+{'6': [{'id': 1, 'text': 'Pusheen and Smitha', 'type': 'LIST', 'number': 'PLURAL', 'gender': 'UNKNOWN', 'animacy': 'ANIMATE', 'startIndex': 1, 'endIndex': 4, 'headIndex': 1, 'sentNum': 1,
+ 'position': [1, 2], 'isRepresentativeMention': True}, {'id': 6, 'text': 'Pusheen and Rahul', 'type': 'LIST', 'number': 'PLURAL', 'gender': 'UNKNOWN', 'animacy': 'ANIMATE', 'startIndex':
+1, 'endIndex': 4, 'headIndex': 1, 'sentNum': 2, 'position': [2, 4], 'isRepresentativeMention': False}]}
+
+
+
+text = (
+  'Pusheen and Smitha walked along the beach. '
+  'Raj and Rahul wanted to surf, but fell off the surfboard.')
+
+PS E:\PS 1\Python testing> python corenlp_test.py
+{}
