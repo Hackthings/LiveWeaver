@@ -60,13 +60,13 @@ if __name__ == '__main__':
         except AttributeError:
             return
         else:
-            if t.label =='S':
+            if t.label() =='S':
                 s = t.flatten()
                 s = s[1:-1]
                 alchemy_language = AlchemyLanguageV1(api_key = '15ce4bd07b66f9e000a15383777870c0afb383fb')
-                emotion_resp = json.dumps(alchemy_language.emotion(text = str), indent = 2)
-                print(emotion_resp)
-                s.assignEmotion(emotion_resp)
+                emotion_resp = alchemy_language.emotion(text = s)
+                print(emotion_resp['docEmotions'])
+                t.setEmotion(emotion_resp)
 
             if t.height() == 2:   #child nodes
                 global INDEX
