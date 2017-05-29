@@ -10,7 +10,7 @@ if __name__ == '__main__':
         'annotators': 'tokenize,ssplit,pos,depparse,parse,openie',
         'outputFormat': 'json'
     })
-    print(output["sentences"][0]['openie'][0]['relation'])
+    #print(output["sentences"][0]['openie'][0]['relation'])
     '''t = Tree.fromstring(output['sentences'][0]['parse'])
     t.draw()
     t.pretty_print()'''
