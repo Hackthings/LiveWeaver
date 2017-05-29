@@ -10,10 +10,10 @@ if __name__ == '__main__':
     class Coreference(object):
         coref_list = []
         def __init__(self, coref):
-            coref_list.append(int(coref['sentNum'])-1)
-            coref_list.append(int(coref['headIndex'])-1)
-            coref_list.append(int(coref['startIndex'])-1)
-            coref_list.append(int(coref['endIndex'])-1)
+            self.coref_list.append(int(coref['sentNum'])-1)
+            self.coref_list.append(int(coref['headIndex'])-1)
+            self.coref_list.append(int(coref['startIndex'])-1)
+            self.coref_list.append(int(coref['endIndex'])-1)
 
     class TokenResponse(object):
         def __init__(self, token):
@@ -68,8 +68,7 @@ if __name__ == '__main__':
                 print(emotion_resp)
                 s.assignEmotion(emotion_resp)
 
-            if t.height() == 2:   #chisld nodes
-                #print(t)
+            if t.height() == 2:   #child nodes
                 global INDEX
                 t.setToken(output['tokens'][INDEX])
                 INDEX += 1
@@ -78,7 +77,7 @@ if __name__ == '__main__':
             for child in t:
                 assignTokens(child, output)
 
-    def assign_corefs(t,output):  # assign corefs only to those whose representative mention is false
+    def assign_corefs(t, output): #assign corefs only to those whose representative mention is false
         for i in output['corefs']:
             for x in output['corefs'][i]:
                 if x['isRepresentativeMention'] == True:
