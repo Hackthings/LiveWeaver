@@ -7,6 +7,9 @@ INDEX = 0
 ROOT = 'ROOT'
 if __name__ == '__main__':
 
+
+#heilhitler
+
     class Coreference(object):
         coref_list = []
         def __init__(self, coref):
