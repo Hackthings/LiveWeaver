@@ -9,6 +9,7 @@ if __name__ == '__main__':
 
 
 #heilhitler
+#daskapital
 
     class Coreference(object):
         coref_list = []
