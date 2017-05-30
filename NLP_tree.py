@@ -93,6 +93,7 @@ if __name__ == '__main__':
         'annotators': 'tokenize,ssplit,pos,depparse,parse,coref',
         'outputFormat': 'json'
     })
+    
     #print(output['sentences'][0]['parse'])
     trees = []
     #traversing through all sentences
@@ -101,4 +102,5 @@ if __name__ == '__main__':
         trees.append(CustomTree.fromstring(sentence['parse'])) #array of trees
         INDEX = 0 #to keep count of word number inside sentence
         assignTokens(trees[sentence['index']], sentence)
+    
     trees[0].draw()
