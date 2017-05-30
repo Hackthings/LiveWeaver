@@ -73,6 +73,8 @@ print('AVENGE TROTSKY.\n')
                 emotion_resp = alchemy_language.emotion(text = s)
                 print(emotion_resp['docEmotions'])
                 t.setEmotion(emotion_resp)
+#kjhkj
+
 
             if t.height() == 2:   #child nodes
                 global INDEX
