@@ -7,12 +7,6 @@ INDEX = 0
 ROOT = 'ROOT'
 if __name__ == '__main__':
 
-
-#heilhitler
-#daskapital
-#avengeTrotsky
-print('AVENGE TROTSKY.\n')
-
     class Coreference(object):
         coref_list = []
         def __init__(self, coref):
@@ -71,7 +65,6 @@ print('AVENGE TROTSKY.\n')
                 s = s[1:-1]
                 alchemy_language = AlchemyLanguageV1(api_key = '15ce4bd07b66f9e000a15383777870c0afb383fb')
                 emotion_resp = alchemy_language.emotion(text = s)
-                print(emotion_resp['docEmotions'])
                 t.setEmotion(emotion_resp)
 #kjhkj
 
