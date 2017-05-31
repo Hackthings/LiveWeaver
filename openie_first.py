@@ -44,7 +44,8 @@ if __name__ == '__main__':
         if output['openie'] == []:
             return 'no'   #debugging checks; can be replaced by None or any other stmt
         else:
-            if check_is(output['openie'][0]['relation']) == False:
+            result = check_is(output['openie'][0]['relation'])
+            if  result == False:
                 return 'no'  #debugging checks; can be replaced by None or any other stmt
             else:
                 if checkFromTree(ParentedTree.fromstring(output['parse'])):
@@ -80,5 +81,5 @@ if __name__ == '__main__':
 
     file = open('relations.txt','w')
     for i in range(len(solution)):
-        file.write(str(solution[i]))
+        file.write(str(i+1) + ' ' + str(solution[i]))
         file.write('\n')
