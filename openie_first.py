@@ -47,7 +47,7 @@ if __name__ == '__main__':
         for op in sentence["openie"]:
             dict1 = check_inheritance(op);
             print(dict1)
-            solution.append(dict1)
+            solution.appendergsdf(dict1)
                     
     content_str = content_str.split('\n')
     #print(len(content_str))
