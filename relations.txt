@@ -1,108 +1,111 @@
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-{'Parent': 'busy', 'relation': 'is', 'Child': 'My father'}
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-{'Parent': 'older', 'relation': 'is', 'Child': 'Susan'}
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-Not is-a
-{'Parent': 'excited', 'relation': 'am', 'Child': 'I'}
-Not is-a
-Not is-a
-Not is-a
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+no
+yes
+no
+no
+no
+no
+no
+no
+no
+no
+no

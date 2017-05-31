@@ -8,8 +8,8 @@ if __name__ == '__main__':
     text = (
         'I will be a dancer')
     output = nlp.annotate(text, properties={
-        'annotators': 'openie',
+        'annotators': 'tokenize,ssplit,pos,depparse,parse,openie',
         'outputFormat': 'json'
     })
 
-    print(output['sentences'][0]['openie'])
+    print(json.dumps(output['sentences'], indent = 4))
