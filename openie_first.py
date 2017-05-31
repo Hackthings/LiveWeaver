@@ -17,6 +17,21 @@ if __name__ == '__main__':
     '''t = Tree.fromstring(output['sentences'][0]['parse'])
     t.draw()
     t.pretty_print()'''
+
+    def checkFromTree(t,output):
+        try:
+            t.label()
+        except AttributeError:
+            return
+        else:
+            if 'VB'in t.label():
+                if t.right_sibling().label() == 'NP':
+                    print('is - a relation')
+                return
+
+            for child in t:
+                assignTokens(child, output)
+
     def check_is(string):
         switcher={
             "is":True,
@@ -31,6 +46,7 @@ if __name__ == '__main__':
         if output == []:
             return "Empty"   #debugging checks; can be replaced by None or any other stmt
         else:
+            checkFromTree(CustomTree.fromstring(output[0]['parse']), output)
             if check_is(output["relation"]) == False:
                 return "Not is-a"  #debugging checks; can be replaced by None or any other stmt
             else:
@@ -45,7 +61,7 @@ if __name__ == '__main__':
     solution = []
     for sentence in output['sentences']:
         for op in sentence["openie"]:
-            dict1 = check_inheritance(op);
+            dict1 = check_inheritance(op)
             print(dict1)
             solution.appendergsdf(dict1)
                     
