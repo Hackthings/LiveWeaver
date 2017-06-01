@@ -1,9 +1,8 @@
 from pycorenlp import StanfordCoreNLP
 import json
-    
-if __name__ == '__main__':  
-    
-    
+
+if __name__ == '__main__':
+
     nlp = StanfordCoreNLP('http://10.4.100.141:9000')
     text = (
         "I'm done")
@@ -12,4 +11,4 @@ if __name__ == '__main__':
         'outputFormat': 'json'
     })
 
-    print(json.dumps(output['sentences'], indent = 4))
+    print(json.dumps(output['sentences'], indent=4))
