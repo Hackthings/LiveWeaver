@@ -24,8 +24,8 @@ if __name__ == '__main__':
                 tag = str(s).split(' ')[0]
                 phrase = ' '.join(str(s).split(' ')[1:])
                 phraseInfo = {'tag': tag, 'phrase': phrase}
+                print(phrase)
                 # send this to database
-                return
             if t.height() == 2:  # child nodes
                 return
 

@@ -63,7 +63,7 @@ if __name__ == '__main__':
             return
         else:
             if t.label() == 'S':
-                s = t.flatten()
+                s = str(t.flatten())
                 s = s[1:-1]
                 alchemy_language = AlchemyLanguageV1(
                     api_key='15ce4bd07b66f9e000a15383777870c0afb383fb')
