@@ -1,15 +1,14 @@
 from pycorenlp import StanfordCoreNLP
 import json
-    
-if __name__ == '__main__':  
-    
-    
+
+if __name__ == '__main__':
+
     nlp = StanfordCoreNLP('http://10.4.100.141:9000')
     text = (
-        'I will be a dancer')
+        "I'm done")
     output = nlp.annotate(text, properties={
-        'annotators': 'openie',
+        'annotators': 'tokenize,ssplit,pos,depparse,parse,openie',
         'outputFormat': 'json'
     })
 
-    print(output['sentences'][0]['openie'])
+    print(json.dumps(output['sentences'], indent=4))
