@@ -29,7 +29,7 @@ if __name__ == '__main__':
             for child in t:
                 curr = checkFromTree(child, curr)
             return curr
-
+#no check for 's. CoreNLP unable to resolve ambiguity
     def check_is(string):
         switcher = {
             'is': True,
