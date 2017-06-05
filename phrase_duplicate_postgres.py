@@ -1,3 +1,4 @@
+#Doesnt use sqlite DB directly
 from pycorenlp import StanfordCoreNLP
 import nltk
 from nltk.tree import ParentedTree
