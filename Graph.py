@@ -3,17 +3,36 @@ import networkx as nx
 nlp = StanfordCoreNLP('http://10.4.100.141:9000')
 text = input()
 output = nlp.annotate(text, properties={'annotators': 'tokenize,ssplit,pos,depparse,parse,lemma','outputFormat': 'json'})
-print(output)
-
 def bfs_paths(graph, start, goal):
-    queue = [(start, [start])]
+    # keep track of explored nodes
+    explored = []
+    # keep track of all the paths to be checked
+    queue = [[start]]
+ 
+    # return path if start is goal
+    if start == goal:
+        return "That was easy! Start = goal"
+ 
+    # keeps looping until all possible paths have been checked
     while queue:
-        (vertex, path) = queue.pop(0)
-        for next in graph[vertex] - set(path):
-            if next == goal:
-                yield path + [next]
-            else:
-                queue.append((next, path + [next]))
+        # pop the first path from the queue
+        path = queue.pop(0)
+        # get the last node from the path
+        node = path[-1]
+        if node not in explored:
+            neighbours = graph[node]
+            # go through all neighbour nodes, construct a new path and
+            # push it into the queue
+            for neighbour in neighbours:
+                new_path = list(path)
+                new_path.append(neighbour)
+                queue.append(new_path)
+                # return path if neighbour is goal
+                if neighbour == goal:
+                    return new_path
+ 
+            # mark node as explored
+            explored.append(node)
 
 for i in range(len(output['sentences'])):
     associations=[]
@@ -30,8 +49,7 @@ for i in range(len(output['sentences'])):
     for x in output['sentences'][i]['basicDependencies']:
         tpl = (x['governor'],x['dependent'])
         conns.append(tpl)
-    for x in conns:
-        g.add_edge(x[0],x[1])
+    g.add_edges_from(conns)
     for x in nnpIndex:
         paths=[]
         wordDist=[]
@@ -51,15 +69,17 @@ for i in range(len(output['sentences'])):
                 if(len(paths[y])<minPath):
                     minPath=len(paths[y])
                     minIndex=nnIndex[y]
+        print(minIndex)
         for y in nnIndex:
             if(y!=minIndex):
-                associations.append([x,minIndex,y,'+1'])
+                associations.append([x,minIndex,y,'1'])
         flag=1
         for y in output['sentences'][i]['basicDependencies']:
             if(y['dep']=='neg'):
                 flag=-1
             if(y['dep'].endswith('mod')):
-                associations.append([x,minIndex,y,str(flag)])
-
+                associations.append([x,minIndex,y['dependent'],str(flag)])
+        print(associations)
 
             
+
