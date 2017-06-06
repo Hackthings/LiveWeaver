@@ -59,7 +59,7 @@ for i in range(len(output['sentences'])):
             wordDist.append(abs(x-y))
         if(len(paths)==1):
             print((paths[0]))
-            if(len(paths[0])==3):
+            if(len(paths[0])==2 or paths[0]==3):
                 minIndex=nnIndex[0]
             else:
                 minIndex=0
