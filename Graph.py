@@ -69,7 +69,7 @@ for i in range(len(output['sentences'])):
                 if(len(paths[y])<minPath):
                     minPath=len(paths[y])
                     minIndex=nnIndex[y]
-        print(minIndex)
+        print([x,minIndex])
         for y in nnIndex:
             if(y!=minIndex):
                 associations.append([x,minIndex,y,'1'])
@@ -77,7 +77,7 @@ for i in range(len(output['sentences'])):
         for y in output['sentences'][i]['basicDependencies']:
             if(y['dep']=='neg'):
                 flag=-1
-            if(y['dep'].endswith('mod')):
+            if(y['dep'].endswith('mod') and y['dep'=='nmod']):
                 associations.append([x,minIndex,y['dependent'],str(flag)])
         print(associations)
 
