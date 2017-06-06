@@ -79,6 +79,7 @@ for i in range(len(output['sentences'])):
                 flag=-1
             if(y['dep'].endswith('mod') and y['dep'=='nmod']):
                 associations.append([x,minIndex,y['dependent'],str(flag)])
+                associations.append([x,y['dependent'],y['governor'],'1'])
         print(associations)
 
             
