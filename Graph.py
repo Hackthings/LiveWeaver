@@ -58,6 +58,7 @@ for i in range(len(output['sentences'])):
             paths.append(list(bfs_paths(g,x,y)))
             wordDist.append(abs(x-y))
         if(len(paths)==1):
+            print((paths[0]))
             if(len(paths[0])==3):
                 minIndex=nnIndex[0]
             else:
@@ -77,7 +78,7 @@ for i in range(len(output['sentences'])):
         for y in output['sentences'][i]['basicDependencies']:
             if(y['dep']=='neg'):
                 flag=-1
-            if(y['dep'].endswith('mod') and y['dep'=='nmod']):
+            if(y['dep'].endswith('mod') and y['dep']!='nmod'):
                 associations.append([x,minIndex,y['dependent'],str(flag)])
                 associations.append([x,y['dependent'],y['governor'],'1'])
         print(associations)
