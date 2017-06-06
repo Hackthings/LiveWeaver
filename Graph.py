@@ -58,7 +58,7 @@ for i in range(len(output['sentences'])):
             paths.append(list(bfs_paths(g,x,y)))
             wordDist.append(abs(x-y))
         if(len(paths)==1):
-            if(len(paths[0])==2):
+            if(len(paths[0])==3):
                 minIndex=nnIndex[0]
             else:
                 minIndex=0
