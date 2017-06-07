@@ -2,6 +2,8 @@ from pycorenlp import StanfordCoreNLP
 import nltk
 from nltk.tree import ParentedTree
 import sqlite3
+import wikipedia
+
 ROOT = 'ROOT'
 if __name__ == '__main__':
 
@@ -45,36 +47,48 @@ if __name__ == '__main__':
 
     nlp = StanfordCoreNLP('http://10.4.100.141:9000')
 
-    # test data assigned for now
-    sentences = ['This is my car', 'Tom has my car',
-                 'Tom has a house', 'I got a new car']
-    k = 0
-    dict = {}
-    flag = 0
+    conn.execute("CREATE TABLE P_INDEX(P_ID INT NOT NULL AUTOINCREMENT, P_TXT TEXT );")
 
-    for i in range(len(sentences)):
-        addSentence(sentences[i])
-        phrase_per_sent.append(phraseInfo)
-        phraseInfo = []
-        for j in range(len(le[0])):
-            if le[0][j] in dict:
-                continue
-            else:
-                dict.update({le[0][j]:flag})
-                flag = flag+1
-        le = []
-    for j in range(len(phrase_per_sent)):
-        for i,p in enumerate(phrase_per_sent[j]):
-            for n in range(len(p['phrase'].split())):
-                wid = dict.get(p['phrase'].split()[n])
-                my_list.append([j+1,i+1,wid+1])
-    for item in my_list:
-        conn.execute('insert into WORD_INDEX values (?,?,?)', (item[0],item[1],item[2]))
-    cursor = conn.execute("SELECT * from WORD_INDEX")
-    for row in cursor:
-        print(row)
+    for i in range(40):
+        namescopes = []
+        namescopes.append(wikipedia.random())
+        articles_names=wikipedia.search(namescopes[i],results=1000)
+        for j in range(1000):
+            articles = []
+            articles.append(articles_names[j].summary())
+            conn.execute('INSERT INTO P_INDEX(P_TXT) VALUES(?)',(articles[j]) )
 
+        # test data assigned for now
+        sentences = articles
+        k = 0
+        dict = {}
+        flag = 0
 
+        for i in range(len(sentences)):
+            addSentence(sentences[i])
+            phrase_per_sent.append(phraseInfo)
+            phraseInfo = []
+            for j in range(len(le[0])):
+                if le[0][j] in dict:
+                    continue
+                else:
+                    dict.update({le[0][j]:flag})
+                    flag = flag+1
+            le = []
+        for j in range(len(phrase_per_sent)):
+            for i,p in enumerate(phrase_per_sent[j]):
+                for n in range(len(p['phrase'].split())):
+                    wid = dict.get(p['phrase'].split()[n])
+                    my_list.append([j+1,i+1,wid+1])
+        for item in my_list:
+            conn.execute('insert into WORD_INDEX values (?,?,?)', (item[0],item[1],item[2]))
+        cursor = conn.execute("SELECT * from WORD_INDEX")
+        for row in cursor:
+            print(row)
+
+            
+    conn.commit()
+    conn.close()
 
 
 
