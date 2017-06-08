@@ -77,14 +77,15 @@ for i in range(len(output['sentences'])):
                 inNeg=t+1
         print([x,minIndex,flag])
         for y in nnIndex:
-            if(y!=minIndex):
+            if(y!=minIndex and minIndex!=0):
                 associations.append([x,minIndex,y,'1'])
         flag=1
         for y in output['sentences'][i]['basicDependencies']:
             if(y['dep']=='neg' and y['dependent']!=inNeg):
                 flag=-1
             if(y['dep'].endswith('mod') and y['dep']!='nmod'):
-                associations.append([x,minIndex,y['dependent'],str(flag)])
+                if(minIndex!=0):
+                    associations.append([x,minIndex,y['dependent'],str(flag)])
                 associations.append([x,y['dependent'],y['governor'],'1'])
         print(associations)
 
