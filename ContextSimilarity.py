@@ -34,7 +34,7 @@ def bfs_paths(graph, start, goal):
                     return new_path
  
             # mark node as explored
-            explored.append(node)context={v}
+            explored.append(node)
 conn=sqlite3.connect('Morphemes.sqlite')
 c=conn.cursor()
 c.execute('CREATE TABLE morphemes (morph TEXT, sID INTEGER, wID INTEGER)')
@@ -94,15 +94,12 @@ for i in range(len(output['sentences'])):
                 if(minIndex!=0):
                     associations.append([i+1,x,minIndex,y['dependent'],flag])
                 associations.append([i+1,x,y['dependent'],y['governor'],1])
+        print(associations)
 def getWord(id1,id2):
-    pairs=c.execute('SELECT morph,wID FROM morphemes WHERE sID={v1}'.format(v1=id1,v2=id2))
+    pairs=c.execute('SELECT morph,wID FROM morphemes WHERE sID={v1}'.format(v1=id1))
     for x,y in pairs:  
         if(y==id2):
             return(x)
-for x in inheritances:
-    print(x[0],getWord(x[0],x[1]),getWord(x[0],x[2]),x[3])
-for x in associations:
-    print(x[0],getWord(x[0],x[1]),getWord(x[0],x[2]),getWord(x[0],x[3]),x[4])
 c.execute('CREATE TABLE inheritances (sID INTEGER,context INTEGER,super INTEGER, dir INTEGER)')
 c.execute('CREATE TABLE associations (sID INTEGER,context INTEGER, noun1 INTEGER,noun2 INTEGER, dir INTEGER)')
 for x in inheritances:
