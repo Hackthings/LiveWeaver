@@ -1,5 +1,6 @@
 from pycorenlp import StanfordCoreNLP
 import networkx as nx
+import sqlite3
 nlp = StanfordCoreNLP('http://10.4.100.141:9000')
 text = input()
 output = nlp.annotate(text, properties={'annotators': 'tokenize,ssplit,pos,depparse,parse,lemma','outputFormat': 'json'})
@@ -33,8 +34,13 @@ def bfs_paths(graph, start, goal):
  
             # mark node as explored
             explored.append(node)
-
+conn=sqlite3.connect('Morphemes.sqlite')
+c=conn.cursor()
+c.execute('CREATE TABLE morphemes (morph TEXT, sID INTEGER, wID INTEGER)')
 for i in range(len(output['sentences'])):
+    for x in output['sentences'][i]['tokens']:
+        c.execute('INSERT INTO morphemes(morph,sID,wID) VALUES(?,?,?)',(x['lemma'],i+1,x['index']))
+    inheritances=[]
     associations=[]
     nnpIndex=[]
     nnIndex = []
@@ -75,18 +81,27 @@ for i in range(len(output['sentences'])):
             if(output['sentences'][i]['basicDependencies'][t]['dep']=='neg'):
                 flag=-1
                 inNeg=t+1
-        print([x,minIndex,flag])
+        inheritances.append([i+1,x,minIndex,flag])
+        print([i+1,x,minIndex,flag])
         for y in nnIndex:
             if(y!=minIndex and minIndex!=0):
-                associations.append([x,minIndex,y,'1'])
+                associations.append([i+1,x,minIndex,y,1])
         flag=1
         for y in output['sentences'][i]['basicDependencies']:
             if(y['dep']=='neg' and y['dependent']!=inNeg):
                 flag=-1
             if(y['dep'].endswith('mod') and y['dep']!='nmod'):
                 if(minIndex!=0):
-                    associations.append([x,minIndex,y['dependent'],str(flag)])
-                associations.append([x,y['dependent'],y['governor'],'1'])
+                    associations.append([i+1,x,minIndex,y['dependent'],flag])
+                associations.append([i+1,x,y['dependent'],y['governor'],1])
         print(associations)
-
+def getWord(id1,id2):
+    pairs=c.execute('SELECT morph,wID FROM morphemes WHERE sID={v1}'.format(v1=id1,v2=id2))
+    for x,y in pairs:
+        if(y==id2):
+            return(x)
+for x in inheritances:
+    print(x[0],getWord(x[0],x[1]),getWord(x[0],x[2]),x[3])
+for x in associations:
+    print(x[0],getWord(x[0],x[1]),getWord(x[0],x[2]),getWord(x[0],x[3]),x[4])
             
