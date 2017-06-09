@@ -3,7 +3,7 @@ import networkx as nx
 import sqlite3
 from scipy import spatial
 nlp = StanfordCoreNLP('http://10.4.100.141:9000')
-text = input()
+text = 'Timmy the elephant has eyes, ears, tusks and legs. Timmy the dog has four legs and four eyes. Timmy the hippo has a big nose and huge ears'
 output = nlp.annotate(text, properties={'annotators': 'tokenize,ssplit,pos,depparse,parse,lemma,openie,ner','outputFormat': 'json'})
 def bfs_paths(graph, start, goal):
     # keep track of explored nodes
@@ -34,7 +34,7 @@ def bfs_paths(graph, start, goal):
                     return new_path
  
             # mark node as explored
-            explored.append(node)
+            explored.append(node)context={v}
 conn=sqlite3.connect('Morphemes.sqlite')
 c=conn.cursor()
 c.execute('CREATE TABLE morphemes (morph TEXT, sID INTEGER, wID INTEGER)')
@@ -83,7 +83,6 @@ for i in range(len(output['sentences'])):
                 flag=-1
                 inNeg=t+1
         inheritances.append([i+1,x,minIndex,flag])
-        print([i+1,x,minIndex,flag])
         for y in nnIndex:
             if(y!=minIndex and minIndex!=0):
                 associations.append([i+1,x,minIndex,y,1])
@@ -95,12 +94,15 @@ for i in range(len(output['sentences'])):
                 if(minIndex!=0):
                     associations.append([i+1,x,minIndex,y['dependent'],flag])
                 associations.append([i+1,x,y['dependent'],y['governor'],1])
-        print(associations)
 def getWord(id1,id2):
     pairs=c.execute('SELECT morph,wID FROM morphemes WHERE sID={v1}'.format(v1=id1,v2=id2))
     for x,y in pairs:  
         if(y==id2):
             return(x)
+for x in inheritances:
+    print(x[0],getWord(x[0],x[1]),getWord(x[0],x[2]),x[3])
+for x in associations:
+    print(x[0],getWord(x[0],x[1]),getWord(x[0],x[2]),getWord(x[0],x[3]),x[4])
 c.execute('CREATE TABLE inheritances (sID INTEGER,context INTEGER,super INTEGER, dir INTEGER)')
 c.execute('CREATE TABLE associations (sID INTEGER,context INTEGER, noun1 INTEGER,noun2 INTEGER, dir INTEGER)')
 for x in inheritances:
@@ -112,6 +114,7 @@ words=[]
 occsCont={}
 for i in range(len(output['sentences'])):
     occs={}
+    print(i)
     contexts.append(output['sentences'][i]['openie'][0]['subject'])
     superWords=list(c.execute('SELECT super FROM inheritances where sID={v}'.format(v=i)))
     print(superWords)
@@ -122,7 +125,7 @@ words=[x for x in words if x not in superWords]
 sWords=set(words)
 def getInComponent(x,y):
     s1=c.execute('SELECT super FROM inheritances WHERE sID={v}'.format(v=x))
-    s2=c.execute('SELECT super FROM inheritances WHERE context={v}'.format(v=y))
+    s2=c.execute('SELECT super FROM inheritances WHERE sID={v}'.format(v=y))
     if(s1==s2):
         return 1
     else:
