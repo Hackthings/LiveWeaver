@@ -115,12 +115,15 @@ for i in range(len(output['sentences'])):
     for x in output['sentences'][i]['tokens']:
         if(x['pos']=='CD'or x['pos']=='JJ' or x['pos']=='NN' or x['pos']=='NNS'):
             words.append(x['word'])  
-superWords=list(c.execute('SELECT super FROM inheritances'))
+c.execute('SELECT super FROM inheritances')
+superWords=list(c.fetchall())
 words=[x for x in words if x not in superWords]
 sWords=set(words)
 def getInComponent(x,y):
-    s1=(c.execute('SELECT super FROM inheritances WHERE context={v}'.format(v=x)))
-    s2=(c.execute('SELECT super FROM inheritances WHERE context={v}'.format(v=y)))
+    c.execute('SELECT super FROM inheritances WHERE context={v}'.format(v=x))
+    s1=list(c.fetchall())
+    c.execute('SELECT super FROM inheritances WHERE context={v}'.format(v=y))
+    s2=list(c.fetchall())
     if(s1==s2):
         return 1
     else:
