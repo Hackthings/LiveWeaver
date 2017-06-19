@@ -3,7 +3,7 @@ import networkx as nx
 import sqlite3
 from scipy import spatial
 nlp = StanfordCoreNLP('http://10.4.100.141:9000')
-text = 'Timmy the elephant has eyes, ears, tusks and legs. Timmy the dog has four legs and four eyes. Timmy the hippo has a big nose and huge ears'
+text = 'Timmy the elephant has eyes, ears, tusks and legs. Benji the dog has four legs and four eyes. Johnny the hippo has a big nose and huge ears'
 output = nlp.annotate(text, properties={'annotators': 'tokenize,ssplit,pos,depparse,parse,lemma,openie,ner','outputFormat': 'json'})
 def bfs_paths(graph, start, goal):
     # keep track of explored nodes
@@ -38,11 +38,11 @@ def bfs_paths(graph, start, goal):
 conn=sqlite3.connect('Morphemes.sqlite')
 c=conn.cursor()
 c.execute('CREATE TABLE morphemes (morph TEXT, sID INTEGER, wID INTEGER)')
+inheritances=[]
+associations=[]
 for i in range(len(output['sentences'])):
     for x in output['sentences'][i]['tokens']:
         c.execute('INSERT INTO morphemes(morph,sID,wID) VALUES(?,?,?)',(x['lemma'],i+1,x['index']))
-    inheritances=[]
-    associations=[]
     nnpIndex=[]
     nnIndex = []
     tpl = ()
@@ -115,6 +115,9 @@ for i in range(len(output['sentences'])):
     for x in output['sentences'][i]['tokens']:
         if(x['pos']=='CD'or x['pos']=='JJ' or x['pos']=='NN' or x['pos']=='NNS'):
             words.append(x['word'])  
+def getContext(id1):
+    c.execute('SELECT context FROM inheritances WHERE sID={v}'.format(v=id1))
+    return(c.fetchall()[0])
 c.execute('SELECT super FROM inheritances')
 superWords=list(c.fetchall())
 words=[x for x in words if x not in superWords]
@@ -141,5 +144,6 @@ for x in (range(1,len(contexts)+1)):
     simSmall={}
     sim[x]=dict(simSmall)
     for y in (range(1,len(contexts)+1)):
+        print(getWord(x,getContext(x)[0]),getWord(y,getContext(y)[0]))
         sim[x][y]=getInComponent(x,y)+1-spatial.distance.cosine(list(occsCont[x-1].values()),list(occsCont[y-1].values()))
-print(sim)
+        print(sim[x][y])
