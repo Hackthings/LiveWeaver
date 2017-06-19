@@ -123,11 +123,13 @@ superWords=list(c.fetchall())
 words=[x for x in words if x not in superWords]
 sWords=set(words)
 def getInComponent(x,y):
-    c.execute('SELECT super FROM inheritances WHERE context={v}'.format(v=x))
+    c.execute('SELECT super FROM inheritances WHERE sID={v}'.format(v=x))
     s1=list(c.fetchall())
-    c.execute('SELECT super FROM inheritances WHERE context={v}'.format(v=y))
+    s1=getWord(x,s1[0][0])
+    c.execute('SELECT super FROM inheritances WHERE sID={v}'.format(v=y))
     s2=list(c.fetchall())
-    if(s1==s2):
+    s2=getWord(y,s2[0][0])
+    if(s1==s2 and s1!=[] and s2!=[]):
         return 1
     else:
         return 0
